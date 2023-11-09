@@ -1,0 +1,109 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+footer {
+  font-size: 15px;
+}
+
+a {
+  color: #00a884;
+}
+
+
+form {
+  margin: 30px;
+}
+
+form input {
+  padding: 5px;
+  font-size: 17px;
+  border-radius: 5px 0px 0px 5px;
+  border: 0px;
+}
+
+form button {
+  font-size: 17px;
+  color: white;
+  background-color: #00a884;
+  padding: 5px;
+  border: 0px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+button {
+  font-size: 20px;
+  color: white;
+  background-color: #00a884;
+  padding: 5px;
+  border: 0px;
+  border-radius: 5px;
+}
+
+
+.members {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.member {
+  background-color: #00a884;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+.big-title {
+  margin: 30px;
+  font-size: 50px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.secret-santa {
+  margin: 30px;
+}
+
+.relations {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.relation { 
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  background-color: #47484b;
+  border-radius: 5px;
+  gap: 10px;
+  font-size: 17px;
+  justify-content: space-between;
+}
+
+.relation-text {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  padding: 5px;
+}
+
+p {
+  font-size: 16px;
+  color: rgb(176, 176, 176);
+}

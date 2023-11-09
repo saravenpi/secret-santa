@@ -8,10 +8,19 @@ function App() {
 
   const addMember = (e) => {
     e.preventDefault();
-    if (name.length > 0) {
-      setMembers([...members, name]);
-      setName("");
+
+    if (name.length === 0) return;
+    var newMemberName = name;
+
+    if (members.includes(newMemberName)) {
+      var number = 2;
+      var modifiedName = newMemberName + number;
+
+      while (members.includes(modifiedName)) modifiedName = newMemberName + (++number);
+      newMemberName = modifiedName;
     }
+    setMembers([...members, newMemberName]);
+    setName("");
   };
 
   const randomNumber = (min, max) => {

@@ -12,6 +12,7 @@
 
 footer {
   font-size: 15px;
+  margin-bottom: 30px;
 }
 
 a {
@@ -26,7 +27,7 @@ form {
 form input {
   padding: 5px;
   font-size: 17px;
-  border-radius: 5px 0px 0px 5px;
+  border-radius: 5px;
   border: 0px;
 }
 
@@ -36,7 +37,7 @@ form button {
   background-color: #00a884;
   padding: 5px;
   border: 0px;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 5px;
 }
 
 button {

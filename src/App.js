@@ -52,13 +52,11 @@ function App() {
 
     for (let i = 0; i < members.length; i++) {
       safePlay = false;
-      if (receivers.includes(members[i])) {
+      if (receivers.includes(members[i])) { // to prevent someone from being it's own secret santa
         safePlay = true;
         removeElement(receivers, members[i]);
       }
       var randomPosition = randomNumber(0, receivers.length - 1);
-      console.log(`length: ${receivers.length}, random: ${randomPosition}`);
-      console.log(`receivers: ${receivers}`);
       var newReceiver = receivers[randomPosition];
 
       relations.push([members[i], newReceiver]);

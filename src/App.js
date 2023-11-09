@@ -55,7 +55,7 @@ function App() {
         <div className="title">Member list:</div>
         <div className="members">
           {members.length === 0 ? (
-            <p>Ajoutez des membres pour générer le Secret Santa</p>
+            <p>Add members to generate the Secret Santa</p>
           ) : (
             members.map((member, index) => (
               <div className="member" key={index}>

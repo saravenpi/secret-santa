@@ -26,28 +26,45 @@ function App() {
 
   const resetMembers = () => {
     setMembers([]);
+    setRelations([]);
   };
   const randomNumber = (min, max) => {
-    const random = Math.random() * (max - min) + min;
-    return Math.floor(random);
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+  const removeElement = (array, element) => {
+    var index = array.indexOf(element);
+    if (index > -1) {
+      array.splice(index, 1);
+    }
+    return array;
   };
 
   const secretSanta = () => {
-    var receivers = [];
+    var includedMembers = [];
     var relations = [];
+    var receivers = [...members];
+    var safePlay = false;
+
     if (members.length < 2) return alert("You need at least 2 members");
 
     for (let i = 0; i < members.length; i++) {
-      var notInList = true;
-      while (notInList) {
-        var randomPosition = randomNumber(0, members.length);
-        var newReceiver = members[randomPosition];
-        if (randomPosition !== i && !receivers.includes(newReceiver)) {
-          notInList = false;
-          relations.push([i, randomPosition]);
-          receivers.push(members[randomPosition]);
-        }
+      safePlay = false;
+      if (receivers.includes(members[i])) {
+        safePlay = true;
+        removeElement(receivers, members[i]);
       }
+      var randomPosition = randomNumber(0, receivers.length - 1);
+      console.log(`length: ${receivers.length}, random: ${randomPosition}`);
+      console.log(`receivers: ${receivers}`);
+      var newReceiver = receivers[randomPosition];
+
+      relations.push([members[i], newReceiver]);
+      includedMembers.push(receivers[randomPosition]);
+      receivers = removeElement(receivers, newReceiver);
+      if (safePlay) receivers.push(members[i]);
     }
     setRelations(relations);
   };
@@ -80,14 +97,16 @@ function App() {
           )}
         </div>
         {members.length > 0 ? (
-          <button onClick={resetMembers}>
-            <i class="fa-solid fa-rotate-right"></i> Refresh List
-          </button>
+          <div>
+            <button onClick={resetMembers}>
+              <i class="fa-solid fa-rotate-right"></i> Refresh List
+            </button>
+            <br></br>
+            <br></br>
+          </div>
         ) : (
           ""
         )}
-        <br></br>
-        <br></br>
         <button onClick={secretSanta}>🎅 Generate Secret Santa</button>
         <div className="secret-santa">
           <div className="title">Secret Santa list:</div>
@@ -95,15 +114,11 @@ function App() {
             {relations.length === 0 ? (
               <p>List not generated yet</p>
             ) : (
-              relations.map((relation) => (
-                <div className="relation">
-                  <div className="member" key={relation[0]}>
-                    {members[relation[0]]}
-                  </div>
+              relations.map((relation, index) => (
+                <div className="relation" key={index}>
+                  <div className="member">{relation[0]}</div>
                   <div className="relation-text">gives to</div>
-                  <div className="member" key={relation[1]}>
-                    {members[relation[1]]}
-                  </div>
+                  <div className="member">{relation[1]}</div>
                 </div>
               ))
             )}

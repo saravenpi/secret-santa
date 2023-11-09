@@ -16,20 +16,26 @@ function App() {
       var number = 2;
       var modifiedName = newMemberName + number;
 
-      while (members.includes(modifiedName)) modifiedName = newMemberName + (++number);
+      while (members.includes(modifiedName))
+        modifiedName = newMemberName + ++number;
       newMemberName = modifiedName;
     }
     setMembers([...members, newMemberName]);
     setName("");
   };
 
+  const resetMembers = () => {
+    setMembers([]);
+  };
   const randomNumber = (min, max) => {
     const random = Math.random() * (max - min) + min;
     return Math.floor(random);
   };
+
   const secretSanta = () => {
     var receivers = [];
     var relations = [];
+    if (members.length < 2) return alert("You need at least 2 members");
 
     for (let i = 0; i < members.length; i++) {
       var notInList = true;
@@ -73,6 +79,15 @@ function App() {
             ))
           )}
         </div>
+        {members.length > 0 ? (
+          <button onClick={resetMembers}>
+            <i class="fa-solid fa-rotate-right"></i> Refresh List
+          </button>
+        ) : (
+          ""
+        )}
+        <br></br>
+        <br></br>
         <button onClick={secretSanta}>🎅 Generate Secret Santa</button>
         <div className="secret-santa">
           <div className="title">Secret Santa list:</div>

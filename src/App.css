@@ -40,16 +40,6 @@ form button {
   border-radius: 5px;
 }
 
-button {
-  font-size: 20px;
-  color: white;
-  background-color: #00a884;
-  padding: 5px;
-  border: 0px;
-  border-radius: 5px;
-}
-
-
 .members {
   margin: 30px;
   display: flex;
@@ -90,7 +80,7 @@ button {
   flex-direction: row;
   padding: 5px;
   background-color: #47484b;
-  border-radius: 5px;
+  border-radius: 10px;
   gap: 10px;
   font-size: 17px;
   justify-content: space-between;
@@ -102,6 +92,15 @@ button {
   justify-content: center;
   justify-items: center;
   padding: 5px;
+}
+
+button {
+  font-size: 20px;
+  color: white;
+  background-color: #00a884;
+  padding: 5px;
+  border: 0px;
+  border-radius: 5px;
 }
 
 p {
